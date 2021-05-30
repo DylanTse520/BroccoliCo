@@ -17,13 +17,24 @@ module.exports = {
           path.join(__dirname, 'node_modules')
         ],
         use: [{ loader: 'babel-loader' }],
+      },
+      {
+        test: /\.(png|jpg)$/,
+        use: [{
+          loader: 'url-loader',
+          options:{
+              limit: 8192,
+              name: 'images/[name]-[hash:8].[ext]',
+          }
+          }],
       }
     ]
   },
   plugins: [
     new HtmlWebPackPlugin({
       template: './src/index.html',
-      inject: 'body'
+      inject: 'body',
+      favicon: './src/resources/img/broccoli.png' 
     })
   ],
   devServer: {

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Color from './Colors'
 
 const Container = styled.div`
   display: flex;
@@ -8,13 +9,14 @@ const Container = styled.div`
   align-items: center;
   height: 12vh;
   width: 100%;
-  border-top: 2px solid black;
+  border-top: 2px solid ${Color.Secondary};
 `
 
 const Text = styled.p`
   font-family: Consolas, Menlo, monospace;
   font-style: italic;
   font-size: smaller;
+  color: ${Color.Secondary};
   margin: 2px;
 `
 

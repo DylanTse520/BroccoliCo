@@ -1,12 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
+import Color from './Colors'
+import broccoliIcon from '../resources/img/broccoli.png'
 
 const Container = styled.div`
   display: flex;
+  flex-direction: row;
   align-items: center;
   height: 12vh;
   width: 100%;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid ${Color.Secondary};
+`
+
+const Icon = styled.img`
+  width: 25px;
+  margin-left: 11vw;
 `
 
 const Home = styled.a`
@@ -14,10 +22,11 @@ const Home = styled.a`
   font-family: Consolas, Menlo, monospace;
   font-size: 22px;
   font-weight: bolder;
-  margin-left: 12vw;
+  color: ${Color.Primary};
+  margin-left: 10px;
 
   &:visited {
-    color: black;
+    color: ${Color.Primary};
   }
  `
 
@@ -25,6 +34,9 @@ class Header extends React.Component {
   render() {
     return (
       <Container>
+        <a href='/'>
+          <Icon src={broccoliIcon}/>
+        </a>
         <Home href='/'>BROCCOLI &amp; CO.</Home>
       </Container>
     )

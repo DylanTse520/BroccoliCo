@@ -2,20 +2,24 @@
 
 1. To start with, download [Node](https://nodejs.org/en/) on your device depending on your operating system.
 
-2. To download all dependencies run:
+2. Download all dependencies by running:
 
-    ```shell
-    npm install
-    ```
+```shell
+npm install
+```
 
 
 #### Building
 
-how to build
+To build the project, run:
+
+```shell
+npm run build
+```
 
 #### Running
 
-how to run
+To run the project, open `index.html` in the generated `dist` folder in a modern browser, e.g. Chrome.
 
 #### Testing
 
