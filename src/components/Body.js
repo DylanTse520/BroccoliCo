@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Button from './Button'
+import Popup from './Popup'
 import Color from './Colors'
 
 const Container = styled.div`
@@ -44,13 +45,44 @@ const InviteButton = styled(Button)`
 `
 
 class Body extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      display: {
+        opacity: 0,
+        visibility: 'hidden'
+      }
+    }
+    this.showPopup = this.showPopup.bind(this)
+    this.dismissPopup = this.dismissPopup.bind(this)
+  }
+
+  showPopup() {
+    this.setState({
+      display: {
+        opacity: 1,
+        visibility: 'visible'
+      }
+    })
+  }
+
+  dismissPopup() {
+    this.setState({
+      display: {
+        opacity: 0,
+        visibility: 'hidden'
+      }
+    })
+  }
+
   render() {
     return (
       <Container>
         <Heading>A better way</Heading>
         <Heading>to enjoy every day.</Heading>
         <Text>Be the first to know when we launch.</Text>
-        <InviteButton>Request an invite</InviteButton>
+        <InviteButton onClick={this.showPopup}>Request an invite</InviteButton>
+        <Popup display={this.state.display} dismissPopup={this.dismissPopup}/>
       </Container>
     )
   }
