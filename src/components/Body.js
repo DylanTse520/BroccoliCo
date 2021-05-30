@@ -47,32 +47,16 @@ const InviteButton = styled(Button)`
 class Body extends React.Component {
   constructor(props){
     super(props)
-    this.state = {
-      display: {
-        opacity: 0,
-        visibility: 'hidden'
-      }
-    }
     this.showPopup = this.showPopup.bind(this)
-    this.dismissPopup = this.dismissPopup.bind(this)
+    this.onRef = this.onRef.bind(this)
+  }
+
+  onRef(ref) {
+    this.popup = ref
   }
 
   showPopup() {
-    this.setState({
-      display: {
-        opacity: 1,
-        visibility: 'visible'
-      }
-    })
-  }
-
-  dismissPopup() {
-    this.setState({
-      display: {
-        opacity: 0,
-        visibility: 'hidden'
-      }
-    })
+    this.popup.showPopup()
   }
 
   render() {
@@ -82,7 +66,7 @@ class Body extends React.Component {
         <Heading>to enjoy every day.</Heading>
         <Text>Be the first to know when we launch.</Text>
         <InviteButton onClick={this.showPopup}>Request an invite</InviteButton>
-        <Popup display={this.state.display} dismissPopup={this.dismissPopup}/>
+        <Popup onRef={this.onRef}/>
       </Container>
     )
   }
