@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import Modal from './Modal'
-import Button from './Button'
-import Color from './Colors'
+import Modal from '../components/Modal'
+import Button from '../components/Button'
+import Color from '../components/Colors'
 
 const PromptMessage = styled.p`
   margin: 0px 25px 15px 25px;

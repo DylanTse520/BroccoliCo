@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import Button from './Button'
+import Button from '../components/Button'
 import InviteModal from './InviteModal'
 import SuccessModal from './SuccessModal'
-import Color from './Colors'
+import Color from '../components/Colors'
 
 const Container = styled.div`
   flex: auto;

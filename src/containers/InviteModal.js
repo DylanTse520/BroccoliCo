@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
-import Modal from './Modal'
-import Input from './Input'
-import Button from './Button'
-import Color from './Colors'
+import Modal from '../components/Modal'
+import Input from '../components/Input'
+import Button from '../components/Button'
+import Color from '../components/Colors'
 
 const SendButton = styled(Button)`
   margin-top: 35px;
@@ -132,6 +132,9 @@ class InviteModal extends React.Component {
       }).then(
         res => {
           this.setState({
+            fullName: '',
+            email: '',
+            confirmEmail: '',
             sendButtonDisabled: false
           })
           this.props.dismissModal()

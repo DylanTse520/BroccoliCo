@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Color from './Colors'
+import Color from '../components/Colors'
 import broccoliIcon from '../resources/img/broccoli.png'
 
 const Container = styled.div`

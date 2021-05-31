@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Color from './Colors'
+import Color from '../components/Colors'
 
 const Container = styled.div`
   flex-direction: column;
