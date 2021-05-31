@@ -4,26 +4,26 @@ import Color from './Colors'
 import broccoliIcon from '../resources/img/broccoli.png'
 
 const Container = styled.div`
-  display: flex;
   flex-direction: row;
   align-items: center;
-  height: 12vh;
-  width: 100%;
+  display: flex;
   border-bottom: 2px solid ${Color.Secondary};
+  width: 100%;
+  height: 12vh;
 `
 
 const Icon = styled.img`
-  width: 25px;
   margin-left: 11vw;
+  width: 25px;
 `
 
 const Home = styled.a`
+  margin-left: 10px;
   text-decoration: none;
-  font-family: Consolas, Menlo, monospace;
   font-size: 22px;
+  font-family: Consolas, Menlo, monospace;
   font-weight: bolder;
   color: ${Color.Primary};
-  margin-left: 10px;
 
   &:visited {
     color: ${Color.Primary};
@@ -35,7 +35,7 @@ class Header extends React.Component {
     return (
       <Container>
         <a href='/'>
-          <Icon src={broccoliIcon}/>
+          <Icon src={broccoliIcon} />
         </a>
         <Home href='/'>BROCCOLI &amp; CO.</Home>
       </Container>

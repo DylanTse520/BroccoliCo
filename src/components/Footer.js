@@ -3,21 +3,21 @@ import styled from 'styled-components'
 import Color from './Colors'
 
 const Container = styled.div`
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 12vh;
-  width: 100%;
+  display: flex;
   border-top: 2px solid ${Color.Secondary};
+  width: 100%;
+  height: 12vh;
 `
 
 const Text = styled.p`
+  margin: 2px;
+  font-size: smaller;
   font-family: Consolas, Menlo, monospace;
   font-style: italic;
-  font-size: smaller;
   color: ${Color.Secondary};
-  margin: 2px;
 `
 
 class Footer extends React.Component {

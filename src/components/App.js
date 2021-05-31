@@ -6,8 +6,8 @@ import Body from './Body'
 import Footer from './Footer'
 
 const Wrap = styled.div`
-  display: flex;
   flex-direction: column;
+  display: flex;
   height: 100vh;
 `
 
@@ -15,11 +15,11 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <GlobalStyled/>
+        <GlobalStyled />
         <Wrap>
-          <Header/>
-          <Body/>
-          <Footer/>
+          <Header />
+          <Body />
+          <Footer />
         </Wrap>
       </div>
     )

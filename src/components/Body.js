@@ -1,62 +1,69 @@
 import React from 'react'
 import styled from 'styled-components'
 import Button from './Button'
-import Popup from './Popup'
+import InviteModal from './InviteModal'
 import Color from './Colors'
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
   flex: auto;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  display: flex;
   width: 100%;
 `
 
 const Heading = styled.h1`
-  text-align: center;
-  font-family: Consolas, Menlo, monospace;
-  font-size: 42px;
-  font-weight: bolder;
-  color: ${Color.Accent};
   max-width: 90vw;
+  font-size: 42px;
+  font-family: Consolas, Menlo, monospace;
+  font-weight: bolder;
+  text-align: center;
+  color: ${Color.Accent};
 `
 
 const Text = styled.p`
-  text-align: center;
-  font-family: Consolas, Menlo, monospace;
-  font-size: 16px;
-  color: ${Color.Secondary};
   margin: 20px 0;
   max-width: 90vw;
+  font-size: 16px;
+  font-family: Consolas, Menlo, monospace;
+  text-align: center;
+  color: ${Color.Secondary};
 `
 
 const InviteButton = styled(Button)`
-  font-size: 16px;
-  padding: 15px;
-  color: ${Color.Accent};
   border-color: ${Color.Accent};
+  padding: 15px;
+  font-size: 16px;
+  color: ${Color.Accent};
 
   &:hover {
-    color: white;
-    background-color: ${Color.Primary};
     border-color: ${Color.Primary};
+    background-color: ${Color.Primary};
+    color: white;
   }
 `
 
 class Body extends React.Component {
   constructor(props){
     super(props)
-    this.showPopup = this.showPopup.bind(this)
-    this.onRef = this.onRef.bind(this)
+    this.state = {
+      inviteModalVisible: false
+    }
+    this.showModal = this.showModal.bind(this)
+    this.dismissModal = this.dismissModal.bind(this)
   }
 
-  onRef(ref) {
-    this.popup = ref
+  showModal() {
+    this.setState({
+      inviteModalVisible: true
+    })
   }
 
-  showPopup() {
-    this.popup.showPopup()
+  dismissModal() {
+    this.setState({
+      inviteModalVisible: false
+    })
   }
 
   render() {
@@ -65,8 +72,8 @@ class Body extends React.Component {
         <Heading>A better way</Heading>
         <Heading>to enjoy every day.</Heading>
         <Text>Be the first to know when we launch.</Text>
-        <InviteButton onClick={this.showPopup}>Request an invite</InviteButton>
-        <Popup onRef={this.onRef}/>
+        <InviteButton onClick={this.showModal}>Request an invite</InviteButton>
+        <InviteModal visible={this.state.inviteModalVisible} dismissModal={this.dismissModal}/>
       </Container>
     )
   }

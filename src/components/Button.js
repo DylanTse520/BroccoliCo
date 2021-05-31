@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
 const Button = styled.button`
-  font-family: Consolas, Menlo, monospace;
+  transition: 0.3s;
   border: 1px solid black;
   border-radius: 0;
+  font-family: Consolas, Menlo, monospace;
   background-color: white;
-  transition: 0.3s;
 
   &:hover {
     background-color: rgba(1, 1, 1, 0.1);
