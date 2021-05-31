@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Button from './Button'
 import InviteModal from './InviteModal'
+import SuccessModal from './SuccessModal'
 import Color from './Colors'
 
 const Container = styled.div`
@@ -32,37 +33,44 @@ const Text = styled.p`
 `
 
 const InviteButton = styled(Button)`
-  border-color: ${Color.Accent};
   padding: 15px;
   font-size: 16px;
-  color: ${Color.Accent};
-
-  &:hover {
-    border-color: ${Color.Primary};
-    background-color: ${Color.Primary};
-    color: white;
-  }
 `
 
 class Body extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      inviteModalVisible: false
+      inviteModalVisible: false,
+      successModalVisible: false
     }
-    this.showModal = this.showModal.bind(this)
-    this.dismissModal = this.dismissModal.bind(this)
+    this.showInviteModal = this.showInviteModal.bind(this)
+    this.showSuccessModal = this.showSuccessModal.bind(this)
+    this.dismissInviteModal = this.dismissInviteModal.bind(this)
+    this.dismissSuccessModal = this.dismissSuccessModal.bind(this)
   }
 
-  showModal() {
+  showInviteModal() {
     this.setState({
       inviteModalVisible: true
     })
   }
 
-  dismissModal() {
+  showSuccessModal() {
+    this.setState({
+      successModalVisible: true
+    })
+  }
+
+  dismissInviteModal() {
     this.setState({
       inviteModalVisible: false
+    })
+  }
+
+  dismissSuccessModal() {
+    this.setState({
+      successModalVisible: false
     })
   }
 
@@ -72,8 +80,14 @@ class Body extends React.Component {
         <Heading>A better way</Heading>
         <Heading>to enjoy every day.</Heading>
         <Text>Be the first to know when we launch.</Text>
-        <InviteButton onClick={this.showModal}>Request an invite</InviteButton>
-        <InviteModal visible={this.state.inviteModalVisible} dismissModal={this.dismissModal}/>
+        <InviteButton onClick={this.showInviteModal}>Request an invite</InviteButton>
+        <InviteModal name='inviteModal'
+                     visible={this.state.inviteModalVisible}
+                     dismissModal={this.dismissInviteModal}
+                     showSuccessModal={this.showSuccessModal} />
+        <SuccessModal name='successModal'
+                      visible={this.state.successModalVisible}
+                      dismissModal={this.dismissSuccessModal} />
       </Container>
     )
   }

@@ -9,24 +9,53 @@ const Mask = styled.div`
   display: flex;
   opacity: ${props => props.visible ? 1 : 0};
   visibility: ${props => props.visible ? 'visible' : 'hidden'};
-  transition: 0.4s ease-in-out;
+  transition: 0.3s ease-in-out;
   width: 100%;
   height: 100%;
-  background-color: #87878766;
+  background-color: rgba(135, 135, 135, 0.4);
 `
 
 const Popup = styled.div`
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   display: flex;
   opacity: ${props => props.visible ? 1 : 0};
   visibility: ${props => props.visible ? 'visible' : 'hidden'};
-  transition: 0.4s ease-in-out;
-  border: 1px solid ${Color.Secondary};
-  width: 30vw;
-  height: 60vh;
-  min-width: 300px;
+  transition: 0.3s ease-in-out;
+  border: 2px solid ${Color.Secondary};
+  padding: 25px 25px 20px 25px;
   background-color: white;
+
+  @media screen and ( max-height: 400px ) {
+    padding: 0 35px;
+  }
+
+  @media screen and ( max-width: 400px ) {
+    padding: 0 25px;
+  }
+`
+
+const Title = styled.p`
+  margin-top: 25px;
+  font-size: 16px;
+  font-family: Consolas, Menlo, monospace;
+  font-weight: bolder;
+  font-style: italic;
+  color: ${Color.Accent};
+`
+
+const Line = styled.hr`
+  margin-top: 15px;
+  margin-bottom: 40px;
+  width: 30px;
+  height: 1px;
+  border: none;
+  background-color: ${Color.Secondary};
+
+  @media screen and ( max-height: 400px ) {
+    margin-bottom: 15px;
+  }
 `
 
 class Modal extends React.Component {
@@ -45,6 +74,8 @@ class Modal extends React.Component {
     return (
       <Mask visible={this.props.visible} onClick={this.dismissModal}>
         <Popup visible={this.props.visible}>
+          <Title>{this.props.title}</Title>
+          <Line />
           {this.props.children}
         </Popup>
       </Mask>

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { GlobalStyled } from '../reset-style'
+import { GlobalStyled } from '../resetStyle'
 import Header from './Header'
 import Body from './Body'
 import Footer from './Footer'

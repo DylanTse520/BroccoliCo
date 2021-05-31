@@ -1,14 +1,18 @@
 import styled from 'styled-components'
+import Color from './Colors'
 
 const Button = styled.button`
   transition: 0.3s;
-  border: 1px solid black;
+  border: 1px solid ${Color.Accent};
   border-radius: 0;
   font-family: Consolas, Menlo, monospace;
   background-color: white;
+  color: ${Color.Accent};
 
   &:hover {
-    background-color: rgba(1, 1, 1, 0.1);
+    border-color: ${Color.Primary};
+    background-color: ${Color.Primary};
+    color: white;
   }
 `
 
