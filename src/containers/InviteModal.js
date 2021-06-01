@@ -160,7 +160,7 @@ class InviteModal extends React.Component {
         <Input name='fullName'
                className={this.state.fullNameValid ? null : 'error'}
                value={this.state.fullName}
-               onChange={(this.handleChange)}
+               onChange={this.handleChange}
                onFocus={this.handleFocus}
                placeholder='Full name' />
         <Input name='email'

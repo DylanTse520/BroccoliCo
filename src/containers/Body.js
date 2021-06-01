@@ -81,12 +81,10 @@ class Body extends React.Component {
         <Heading>to enjoy every day.</Heading>
         <Text>Be the first to know when we launch.</Text>
         <InviteButton onClick={this.showInviteModal}>Request an invite</InviteButton>
-        <InviteModal name='inviteModal'
-                     visible={this.state.inviteModalVisible}
+        <InviteModal visible={this.state.inviteModalVisible}
                      dismissModal={this.dismissInviteModal}
                      showSuccessModal={this.showSuccessModal} />
-        <SuccessModal name='successModal'
-                      visible={this.state.successModalVisible}
+        <SuccessModal visible={this.state.successModalVisible}
                       dismissModal={this.dismissSuccessModal} />
       </Container>
     )
